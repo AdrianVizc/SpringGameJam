@@ -33,8 +33,15 @@ public class ItemRotationHandler : MonoBehaviour
              float radius = transform.localScale.y * 0.5f;
              float angle = (distance / (2 * Mathf.PI * transform.localScale.x * 0.5f)) * 360f;
 
-            transform.Rotate(Vector3.right, -angle, Space.Self);
-         }
+            if (!Input.GetKey(KeyCode.S))
+            {
+                transform.Rotate(Vector3.right, -angle, Space.Self);
+            }
+            else
+            {
+                transform.Rotate(Vector3.right, angle, Space.Self);
+            }
+        }
          
          lastpos = currPos;
     }
