@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovementInput : MonoBehaviour
 {
+    [SerializeField] private GameObject person;
+    [SerializeField] private GameObject ball;
     [SerializeField] float acceleration;
     [SerializeField] float steering;
     [SerializeField] float maxSpeed;
@@ -23,6 +25,8 @@ public class MovementInput : MonoBehaviour
 
         rb.AddForce(transform.up * moveInput * acceleration);
 
+        person.GetComponent<Animator>().SetBool("isMoving", rb.velocity.magnitude > 0.1f);
+        ball.GetComponent<Animator>().SetBool("isMoving", rb.velocity.magnitude > 0.1f);
         //if (rb.velocity.magnitude > 0.1f)
         {
             float direction = Mathf.Sign(Vector2.Dot(rb.velocity, transform.up));

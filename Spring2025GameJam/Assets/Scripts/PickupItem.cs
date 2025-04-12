@@ -6,6 +6,7 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private ItemRotationHandler rotationHandler;
     [SerializeField] private int percentToIncrease;
     public float scaleIncrease;
     private List<GameObject> pickupItems = new List<GameObject>();
@@ -25,6 +26,7 @@ public class PickupItem : MonoBehaviour
         if (collision.gameObject.CompareTag("pickupable"))
         {
             // Rescale child objects
+            collision.gameObject.transform.localScale = new Vector2(1, 1);
             attachedItems.Add(collision.gameObject);
 
             // Destroy the pickupable item and add to minThreshold
@@ -37,12 +39,13 @@ public class PickupItem : MonoBehaviour
             {
                 currPickedUp = 0;
 
-                foreach (GameObject obj in attachedItems)
-                {
-                    obj.transform.localScale *= 1.1f - scaleIncrease;
-                }
+                rotationHandler.GetComponent<SphereCollider>().radius += scaleIncrease;
+                // foreach (GameObject obj in attachedItems)
+                // {
+                //     obj.transform.localScale = new Vector2(obj.transform.localScale.x * 0.8f, obj.transform.localScale.x * 0.8f);
+                // }
                 transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y + scaleIncrease);
-                player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + scaleIncrease, player.transform.localPosition.z);
+                player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + scaleIncrease - 0.1f, player.transform.localPosition.z);
             }
         }
     }

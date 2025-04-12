@@ -14,12 +14,11 @@ public class ItemRotationHandler : MonoBehaviour
     {
         parentObj = transform.root;
         magnetBall = GameObject.FindGameObjectWithTag("magnet_ball");
-        Debug.Log(parentObj.name);
     }
 
     private void Update()
     {
-         transform.localScale = magnetBall.transform.localScale;
+         //transform.localScale = magnetBall.transform.localScale;
 
          currPos = parentObj.position;
          movement = currPos - lastpos;
