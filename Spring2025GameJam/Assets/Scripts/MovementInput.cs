@@ -18,20 +18,20 @@ public class MovementInput : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float moveInput = Input.GetAxis("Vertical");
+        float moveInput = -Input.GetAxis("Vertical");
         float turnInput = Input.GetAxis("Horizontal");
 
         rb.AddForce(transform.up * moveInput * acceleration);
 
-        if (rb.velocity.magnitude > 0.1f)
+        //if (rb.velocity.magnitude > 0.1f)
         {
             float direction = Mathf.Sign(Vector2.Dot(rb.velocity, transform.up));
             rb.MoveRotation(rb.rotation - turnInput * steering * direction);
         }
 
-        if (rb.velocity.magnitude > maxSpeed)
+        //if (rb.velocity.magnitude > maxSpeed)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            //rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
 }
