@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PickupItem : MonoBehaviour
@@ -25,21 +26,23 @@ public class PickupItem : MonoBehaviour
         {
             // Rescale child objects
             attachedItems.Add(collision.gameObject);
-            foreach(GameObject obj in attachedItems)
-            {
-                obj.transform.localScale = new Vector3(obj.transform.localScale.x * (1.1f - scaleIncrease), obj.transform.localScale.y * (1.1f - scaleIncrease));
-            }
 
             // Destroy the pickupable item and add to minThreshold
             collision.gameObject.tag = "Untagged";
-            collision.gameObject.transform.parent = transform;
+            collision.gameObject.transform.parent = GameObject.FindObjectOfType<ItemRotationHandler>().transform;
             collision.gameObject.GetComponent<Collider2D>().enabled = false;
             ++currPickedUp;
 
             if (currPickedUp >= minThreshold)
             {
+                currPickedUp = 0;
+
+                foreach (GameObject obj in attachedItems)
+                {
+                    obj.transform.localScale *= 1.1f - scaleIncrease;
+                }
                 transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y + scaleIncrease);
-                player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + scaleIncrease * 1.25f);
+                player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + scaleIncrease, player.transform.localPosition.z);
             }
         }
     }
