@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GarbageTruckCollide : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GarbageTruckCollide : MonoBehaviour
 
     private void Start()
     {
-        scrapText = GameObject.FindGameObjectWithTag("scrap_text_ui").GetComponent<TMP_Text>();
+        scrapText = GameObject.Find("WinScreenManager").gameObject.transform.Find("WinScreenPanel").Find("scrap percent text").GetComponent<TMP_Text>();
         animator = GetComponent<Animator>();
         animator.enabled = false;
         doOnce = false;
