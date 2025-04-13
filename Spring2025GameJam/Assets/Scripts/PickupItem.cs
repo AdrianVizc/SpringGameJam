@@ -4,6 +4,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PickupItem : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private ItemRotationHandler rotationHandler;
     [SerializeField] private int percentToIncrease;
     [SerializeField] private TMP_Text score;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
     public float scaleIncrease;
+    [HideInInspector] public int totalEnlarged;
 
     private List<GameObject> pickupItems = new List<GameObject>();
     private List<GameObject> attachedItems = new List<GameObject>();
@@ -27,6 +30,7 @@ public class PickupItem : MonoBehaviour
         scaleIncrease = scaleIncrease / 10;
         currPickedUp = 0;
         totalScore = 0;
+        totalEnlarged = 0;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -50,11 +54,13 @@ public class PickupItem : MonoBehaviour
             if (currPickedUp >= minThreshold)
             {
                 currPickedUp = 0;
+                ++totalEnlarged;
 
                 rotationHandler.GetComponent<SphereCollider>().radius += scaleIncrease;
-
                 transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y + scaleIncrease);
                 player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + scaleIncrease - 0.1f, player.transform.localPosition.z);
+
+                virtualCamera.m_Lens.OrthographicSize += scaleIncrease;
             }
         }
     }

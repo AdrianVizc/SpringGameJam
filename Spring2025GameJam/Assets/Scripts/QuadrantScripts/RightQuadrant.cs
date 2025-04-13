@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class RightQuadrant : MonoBehaviour
 {
-    private GameObject player;
-    private GameObject ball;
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("player");
-        ball = GameObject.FindGameObjectWithTag("magnet_ball");
-    }
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject ball;
 
     private void OnTriggerEnter(Collider collision)
     {
