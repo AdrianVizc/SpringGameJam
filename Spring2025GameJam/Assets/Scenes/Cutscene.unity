@@ -352,7 +352,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75a0fdff0f2e23f4cad58a40ecdb0bec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d801e51fffe32f4784aa7911ad14b21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -593,16 +593,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayBeforeStart: 1
-  timeBtwChars: 1
+  timeBtwChars: 0.1
   delayBetweenTextAndBackground: 1
   leadingChar: 
   leadingCharBeforeDelay: 0
   textList:
-  - LEBROOOOONNN
-  - Yeah buddy... you're cooked
+  - It was April 13th, 6:03pm, when the robot aliens invaded.
+  - All hope was lost as they quickly 'futurized' our great green Earth.
+  - But amazing heroes courageously fought back and defeated the chromium foes.
+  - I wish I could see the heroes in person and celebrate with everyone else. . .
+    but I have work to do.
   backgroundList:
-  - {fileID: 21300000, guid: 75a0fdff0f2e23f4cad58a40ecdb0bec, type: 3}
-  - {fileID: 21300000, guid: 627eefa3ee371d144981fc6a23a40087, type: 3}
+  - {fileID: 21300000, guid: 7d801e51fffe32f4784aa7911ad14b21, type: 3}
+  - {fileID: 21300000, guid: e3296759a95ec4b4185bc0c604be2e86, type: 3}
+  - {fileID: 21300000, guid: 4ff44dc7605b8964aacb7445b7622a97, type: 3}
+  - {fileID: 21300000, guid: a6a7e4ed43b84cf45b7c771ff413a1b4, type: 3}
   backgroundImage: {fileID: 585093667}
   nextSceneName: Level 1-1
 --- !u!1 &1963126965
