@@ -9,6 +9,8 @@ public class InGameButtons : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenuObject;
     [SerializeField] private GameObject loseScreenPanel;
+    [SerializeField] private GameObject winScreenPanel;
+    [SerializeField] private string nextLevel;
 
     private bool isPaused;
 
@@ -37,7 +39,7 @@ public class InGameButtons : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!isPaused && !loseScreenPanel.activeSelf)
+            if (!isPaused && !loseScreenPanel.activeSelf && !winScreenPanel.activeSelf)
             {
                 pauseMenuObject.SetActive(true);
                 Time.timeScale = 0f;
@@ -58,5 +60,10 @@ public class InGameButtons : MonoBehaviour
         
         SceneManager.LoadScene(scene.name);
         Time.timeScale = 1f;
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(nextLevel);
     }
 }
