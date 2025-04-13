@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class PickupItem : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private ItemRotationHandler rotationHandler;
     [SerializeField] private int percentToIncrease;
+    [SerializeField] private TMP_Text score;
     public float scaleIncrease;
+
     private List<GameObject> pickupItems = new List<GameObject>();
     private List<GameObject> attachedItems = new List<GameObject>();
+
     private int minThreshold;
     private int currPickedUp;
+    private int totalScore;
 
     private void Start()
     {
@@ -20,30 +26,33 @@ public class PickupItem : MonoBehaviour
         minThreshold = Mathf.FloorToInt(pickupItems.Count * (percentToIncrease / 100f));
         scaleIncrease = scaleIncrease / 10;
         currPickedUp = 0;
+        totalScore = 0;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("pickupable"))
         {
+            // Add to total score based on item's value
+            totalScore += collision.gameObject.GetComponent<ItemValue>().value;
+            score.text = totalScore.ToString();
+
             // Rescale child objects
             collision.gameObject.transform.localScale = new Vector2(1, 1);
             attachedItems.Add(collision.gameObject);
 
-            // Destroy the pickupable item and add to minThreshold
+            // Add to minThreshold and attach collision obj to ball
             collision.gameObject.tag = "Untagged";
             collision.gameObject.transform.parent = GameObject.FindObjectOfType<ItemRotationHandler>().transform;
             collision.gameObject.GetComponent<Collider2D>().enabled = false;
             ++currPickedUp;
 
+            // Once minThreshold reached, increase ball size
             if (currPickedUp >= minThreshold)
             {
                 currPickedUp = 0;
 
                 rotationHandler.GetComponent<SphereCollider>().radius += scaleIncrease;
-                // foreach (GameObject obj in attachedItems)
-                // {
-                //     obj.transform.localScale = new Vector2(obj.transform.localScale.x * 0.8f, obj.transform.localScale.x * 0.8f);
-                // }
+
                 transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y + scaleIncrease);
                 player.transform.localPosition = new Vector3(player.transform.localPosition.x, player.transform.localPosition.y + scaleIncrease - 0.1f, player.transform.localPosition.z);
             }
