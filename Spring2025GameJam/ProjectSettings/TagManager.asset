@@ -8,6 +8,7 @@ TagManager:
   - magnet_ball
   - player
   - main_char
+  - water
   layers:
   - Default
   - TransparentFX

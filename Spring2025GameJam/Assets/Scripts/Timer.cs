@@ -5,6 +5,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    //[SerializeField] private 
     [SerializeField] private float minutes;
     [SerializeField] private float seconds;
     [SerializeField] private TMP_Text timerText;
