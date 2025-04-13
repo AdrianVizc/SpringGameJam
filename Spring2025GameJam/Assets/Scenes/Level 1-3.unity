@@ -2954,7 +2954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &215325037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6607,6 +6607,7 @@ MonoBehaviour:
   player: {fileID: 904616063}
   rotationHandler: {fileID: 1529108373}
   percentToIncrease: 25
+  score: {fileID: 0}
   scaleIncrease: 2
 --- !u!58 &1471359390
 CircleCollider2D:

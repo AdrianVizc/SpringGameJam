@@ -4915,6 +4915,7 @@ MonoBehaviour:
   player: {fileID: 2085450861}
   rotationHandler: {fileID: 1408892221}
   percentToIncrease: 25
+  score: {fileID: 0}
   scaleIncrease: 2
 --- !u!58 &1152177244
 CircleCollider2D:
