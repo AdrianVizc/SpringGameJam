@@ -10,12 +10,6 @@ public class Timer : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private PlayerStartupAnimation animStart;
 
-    public bool timeIsOver;
-
-    private void Start()
-    {
-        timeIsOver = false;
-    }
 
     private void Update()
     {
@@ -46,7 +40,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            timeIsOver = true;
+            GameObject.Find("LoseScreenManager").GetComponentInChildren<LosingSceneManager>().CheckIfLostGame();
         }
     }
 }

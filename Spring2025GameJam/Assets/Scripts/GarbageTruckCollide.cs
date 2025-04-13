@@ -7,6 +7,7 @@ public class GarbageTruckCollide : MonoBehaviour
     private Animator animator;
     private PickupItem pickupItem;
     private float percentCollected;
+    private bool doOnce;
     // returns percentage of total garbage collected, rounded to nearest percentage.
     // ex: person collects 3 out of 9 garbage on map -> returns "33"
 
@@ -17,6 +18,20 @@ public class GarbageTruckCollide : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.enabled = false;
+        doOnce = false;
+    }
+
+    private void Update()
+    {
+        if (animationFinished)
+        {
+            GameObject.Find("WinScreenManager").GetComponent<WinScreenManager>().CheckAnimtionFinished();
+            if (!doOnce)
+            {
+                GameObject.Find("WinScreenManager").GetComponent<WinScreenManager>().CheckScrapPercentage();
+                doOnce = true;
+            }            
+        }
     }
 
     private void FixedUpdate()

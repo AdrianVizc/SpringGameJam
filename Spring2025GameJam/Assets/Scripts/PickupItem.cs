@@ -42,6 +42,8 @@ public class PickupItem : MonoBehaviour
             // Add to total score based on item's value
             ++totalPickedUp;
             percentCollected = Mathf.Round(((float)totalPickedUp / (float)pickupItems.Count) * 100f);
+            GameObject.Find("WinScreenManager").GetComponent<WinScreenManager>().scrapPercentage = percentCollected;
+            Debug.Log(percentCollected);
             totalScore += collision.gameObject.GetComponent<ItemValue>().value;
             score.text = totalScore.ToString();
 
