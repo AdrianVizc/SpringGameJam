@@ -702,8 +702,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291878087
-  m_fontColor: {r: 0.7803922, g: 0.86274517, b: 0.81568635, a: 1}
+    rgba: 4280927223
+  m_fontColor: {r: 0.9686275, g: 0.76470596, b: 0.16078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -810,7 +810,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -992,6 +992,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   scaleIncrease: 3
   totalEnlarged: 0
+  percentCollected: 0
 --- !u!95 &732893307262278868
 Animator:
   serializedVersion: 5
@@ -2091,7 +2092,7 @@ GameObject:
   - component: {fileID: 5109417193472705400}
   m_Layer: 0
   m_Name: MainChar
-  m_TagString: Untagged
+  m_TagString: main_char
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

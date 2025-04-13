@@ -41,7 +41,7 @@ public class PickupItem : MonoBehaviour
         {
             // Add to total score based on item's value
             ++totalPickedUp;
-            percentCollected = totalPickedUp / pickupItems.Count;
+            percentCollected = Mathf.Round(((float)totalPickedUp / (float)pickupItems.Count) * 100f);
             totalScore += collision.gameObject.GetComponent<ItemValue>().value;
             score.text = totalScore.ToString();
 
