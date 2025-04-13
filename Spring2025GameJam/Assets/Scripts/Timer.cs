@@ -9,6 +9,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private float seconds;
     [SerializeField] private TMP_Text timerText;
 
+    public bool timeIsOver;
+
+    private void Start()
+    {
+        timeIsOver = false;
+    }
+
     private void Update()
     {
         Countdown();
@@ -19,19 +26,23 @@ public class Timer : MonoBehaviour
         if (minutes > 0 || seconds > 0)
         {
             seconds -= Time.deltaTime;
-            if (seconds < 0)
+            if (seconds < -1)
             {
-                seconds = 60;
+                seconds = 59;
                 minutes -= 1;
             }
-            if (seconds < 10)
+            if (seconds < 9)
             {
-                timerText.text = Mathf.FloorToInt(minutes).ToString() + ":0" + Mathf.FloorToInt(seconds).ToString();
+                timerText.text = Mathf.FloorToInt(minutes).ToString() + ":0" + Mathf.CeilToInt(seconds).ToString();
             }
             else
             {
-                timerText.text = Mathf.FloorToInt(minutes).ToString() + ":" + Mathf.FloorToInt(seconds).ToString();
+                timerText.text = Mathf.FloorToInt(minutes).ToString() + ":" + Mathf.CeilToInt(seconds).ToString();
             }            
+        }
+        else
+        {
+            timeIsOver = true;
         }
     }
 }
