@@ -10,6 +10,9 @@ public class GarbageTruckCollide : MonoBehaviour
     // returns percentage of total garbage collected, rounded to nearest percentage.
     // ex: person collects 3 out of 9 garbage on map -> returns "33"
 
+    [HideInInspector] public bool animationFinished;
+    // returns true when animation is finished; else false
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -26,6 +29,11 @@ public class GarbageTruckCollide : MonoBehaviour
         {
             percentCollected = pickupItem.percentCollected;
         }
+    }
+
+    public void AlertObservers(string message)
+    {
+        animationFinished = message.Equals("animationEnded");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

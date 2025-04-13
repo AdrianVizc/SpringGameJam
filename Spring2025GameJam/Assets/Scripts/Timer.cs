@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private float minutes;
     [SerializeField] private float seconds;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private PlayerStartupAnimation animStart;
 
     public bool timeIsOver;
 
@@ -18,7 +19,10 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        Countdown();
+        if (animStart.animationFinished)
+        {
+            Countdown();
+        }
     }
 
     private void Countdown()
