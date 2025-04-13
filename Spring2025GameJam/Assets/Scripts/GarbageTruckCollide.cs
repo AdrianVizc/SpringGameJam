@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GarbageTruckCollide : MonoBehaviour
 {
+    private TMP_Text scrapText;
     private Animator animator;
     private PickupItem pickupItem;
     private float percentCollected;
@@ -16,6 +18,7 @@ public class GarbageTruckCollide : MonoBehaviour
 
     private void Start()
     {
+        scrapText = GameObject.FindGameObjectWithTag("scrap_text_ui").GetComponent<TMP_Text>();
         animator = GetComponent<Animator>();
         animator.enabled = false;
         doOnce = false;
@@ -63,6 +66,7 @@ public class GarbageTruckCollide : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             // End Screen code...
+            scrapText.text = percentCollected.ToString() + "% Total Scrap Collected!";
         }
     }
 }
