@@ -231,11 +231,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b6f26e54a41885408be8ec940463862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutes: 2
+  minutes: 0
   seconds: 3
   timerText: {fileID: 979463666390326651}
   animStart: {fileID: 1637345997420335122}
-  timeIsOver: 0
 --- !u!1 &330374563539753051
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +417,7 @@ GameObject:
   - component: {fileID: 2360076553528678979}
   m_Layer: 0
   m_Name: Movement
-  m_TagString: Untagged
+  m_TagString: main_char
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
