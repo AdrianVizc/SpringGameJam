@@ -15,7 +15,7 @@ public class PlayerStartupAnimation : MonoBehaviour
     {
         animationFinished = false;
 
-        movement = transform.root.GetComponent<MovementInput>();
+        movement = transform.root.GetComponentInChildren<MovementInput>();
         player = GameObject.FindWithTag("player");
         ball = GameObject.FindWithTag("magnet_ball");
 
