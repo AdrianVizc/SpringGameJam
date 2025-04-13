@@ -50,3 +50,6 @@ TagManager:
   - name: Tree 2
     uniqueID: 2490726855
     locked: 0
+  - name: Tree 3
+    uniqueID: 437540787
+    locked: 0
