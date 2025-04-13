@@ -45,6 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ScrapTree
+    uniqueID: 3260753281
+    locked: 0
   - name: Tree
     uniqueID: 1198481599
     locked: 0
