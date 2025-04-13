@@ -9,6 +9,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private float seconds;
     [SerializeField] private TMP_Text timerText;
 
+    public bool timeIsOver;
+
+    private void Start()
+    {
+        timeIsOver = false;
+    }
+
     private void Update()
     {
         Countdown();
@@ -32,6 +39,10 @@ public class Timer : MonoBehaviour
             {
                 timerText.text = Mathf.FloorToInt(minutes).ToString() + ":" + Mathf.CeilToInt(seconds).ToString();
             }            
+        }
+        else
+        {
+            timeIsOver = true;
         }
     }
 }
