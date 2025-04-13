@@ -9,7 +9,7 @@ public class PlayerStartupAnimation : MonoBehaviour
     private MovementInput movement;
     private GameObject player;
     private GameObject ball;
-    private bool animationFinished;
+    [HideInInspector] public bool animationFinished;
 
     private void Start()
     {
