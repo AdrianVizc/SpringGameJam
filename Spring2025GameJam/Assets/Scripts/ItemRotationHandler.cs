@@ -12,7 +12,7 @@ public class ItemRotationHandler : MonoBehaviour
 
     private void Start()
     {
-        parentObj = transform.root;
+        parentObj = transform.parent;
         magnetBall = GameObject.FindGameObjectWithTag("magnet_ball");
     }
 
