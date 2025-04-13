@@ -15,6 +15,7 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     public float scaleIncrease;
     [HideInInspector] public int totalEnlarged;
+    [HideInInspector] public float percentCollected; // DEV NOTE FOR NICK: this is the variable for total percent of objects collected
 
     private List<GameObject> pickupItems = new List<GameObject>();
     private List<GameObject> attachedItems = new List<GameObject>();
@@ -22,6 +23,7 @@ public class PickupItem : MonoBehaviour
     private int minThreshold;
     private int currPickedUp;
     private int totalScore;
+    private int totalPickedUp;
 
     private void Start()
     {
@@ -31,12 +33,15 @@ public class PickupItem : MonoBehaviour
         currPickedUp = 0;
         totalScore = 0;
         totalEnlarged = 0;
+        totalPickedUp = 0;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("pickupable"))
         {
             // Add to total score based on item's value
+            ++totalPickedUp;
+            percentCollected = totalPickedUp / pickupItems.Count;
             totalScore += collision.gameObject.GetComponent<ItemValue>().value;
             score.text = totalScore.ToString();
 
