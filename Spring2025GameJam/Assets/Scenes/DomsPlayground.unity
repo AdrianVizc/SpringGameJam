@@ -1212,6 +1212,22 @@ PrefabInstance:
       propertyPath: m_Sources.Array.data[0].sourceTransform
       value: 
       objectReference: {fileID: 1449940665}
+    - target: {fileID: 7010311546839912319, guid: 89c54a1c25dd88e45accd17733e67633, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010311546839912319, guid: 89c54a1c25dd88e45accd17733e67633, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010311546839912319, guid: 89c54a1c25dd88e45accd17733e67633, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.9686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010311546839912319, guid: 89c54a1c25dd88e45accd17733e67633, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280927223
+      objectReference: {fileID: 0}
     - target: {fileID: 8021102800469314477, guid: 89c54a1c25dd88e45accd17733e67633, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
