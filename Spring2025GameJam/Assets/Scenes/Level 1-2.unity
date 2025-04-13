@@ -11000,7 +11000,7 @@ MonoBehaviour:
   pauseMenuObject: {fileID: 461242053}
   loseScreenPanel: {fileID: 251899206}
   winScreenPanel: {fileID: 638698224}
-  nextLevel: Level 1-2
+  nextLevel: Level 1-3
 --- !u!114 &435356275
 MonoBehaviour:
   m_ObjectHideFlags: 0
