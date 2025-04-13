@@ -12418,8 +12418,8 @@ MonoBehaviour:
   GrayStar: {fileID: 2831144069373378395, guid: 25a96b5829c155d418be9faba73b8ba9, type: 3}
   GoldStar: {fileID: 2412133537073190140, guid: e9958a78a46e78d4e9a4f13335a9faa8, type: 3}
   starManager: {fileID: 2088949115}
-  firstStarRequirement: 50
-  secondStarRequirement: 75
+  firstStarRequirement: 25
+  secondStarRequirement: 60
   thirdStarRequirement: 100
   scrapPercentage: 0
 --- !u!1001 &1477985571
