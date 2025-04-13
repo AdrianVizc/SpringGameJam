@@ -12,19 +12,17 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private string level4;
     [SerializeField] private string level5;
     [SerializeField] private string level6;
-    [SerializeField] private GameObject startButton;
-    [SerializeField] private GameObject levelSelectButton;
-    [SerializeField] private GameObject quitButton;
+    [Space]
+    [SerializeField] private GameObject rivePanel;
     [SerializeField] private GameObject backButton;
     [SerializeField] private GameObject levelsPanel;
 
+    [HideInInspector]
     public List<string> levels = new List<string>();
 
     private void Awake()
     {
-        startButton.SetActive(true);
-        levelSelectButton.SetActive(true);
-        quitButton.SetActive(true);
+        rivePanel.SetActive(true);
         backButton.SetActive(false);
         levelsPanel.SetActive(false);
 
@@ -48,18 +46,14 @@ public class MainMenuButtons : MonoBehaviour
 
     public void ShowLevelSelectPanelButton()
     {
-        startButton.SetActive(false);
-        levelSelectButton.SetActive(false);
-        quitButton.SetActive(false);
+        rivePanel.SetActive(false);
         backButton.SetActive(true);
         levelsPanel.SetActive(true);
     }
 
     public void BackButton()
     {
-        startButton.SetActive(true);
-        levelSelectButton.SetActive(true);
-        quitButton.SetActive(true);
+        rivePanel.SetActive(true);
         backButton.SetActive(false);
         levelsPanel.SetActive(false);
     }

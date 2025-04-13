@@ -22,6 +22,10 @@ public class InGameButtons : MonoBehaviour
 
     public void MainMenuButton()
     {
+        if (Time.timeScale < 1)
+        {
+            Time.timeScale = 1;
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
