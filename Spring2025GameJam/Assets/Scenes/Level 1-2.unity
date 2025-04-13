@@ -10366,6 +10366,10 @@ PrefabInstance:
       propertyPath: minutes
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 954317831832074032, guid: 12fd55e7aa27dc44e8623b4d0a3b6c97, type: 3}
+      propertyPath: seconds
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1499443778458459718, guid: 12fd55e7aa27dc44e8623b4d0a3b6c97, type: 3}
       propertyPath: m_TagString
       value: main_char
