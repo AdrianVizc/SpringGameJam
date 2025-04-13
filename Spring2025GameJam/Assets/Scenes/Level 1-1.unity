@@ -9240,12 +9240,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WinScreenPanel: {fileID: 454995587}
-  GrayStar: {fileID: 0}
-  GoldStar: {fileID: 0}
-  starManager: {fileID: 0}
-  firstStarRequirement: 0
-  secondStarRequirement: 0
-  thirdStarRequirement: 0
+  GrayStar: {fileID: 2831144069373378395, guid: 25a96b5829c155d418be9faba73b8ba9, type: 3}
+  GoldStar: {fileID: 2412133537073190140, guid: e9958a78a46e78d4e9a4f13335a9faa8, type: 3}
+  starManager: {fileID: 127802819}
+  firstStarRequirement: 50
+  secondStarRequirement: 80
+  thirdStarRequirement: 100
   scrapPercentage: 0
 --- !u!1 &1463460545
 GameObject:
