@@ -9,6 +9,7 @@ TagManager:
   - player
   - main_char
   - water
+  - scrap_text_ui
   layers:
   - Default
   - TransparentFX
