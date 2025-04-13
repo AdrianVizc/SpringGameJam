@@ -2,15 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class Timer : MonoBehaviour
 {
-    //[SerializeField] private 
+    [SerializeField] private Animator loseAnimator;
     [SerializeField] private float minutes;
     [SerializeField] private float seconds;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private PlayerStartupAnimation animStart;
+    [SerializeField] private LoseAnimationHandler animLose;
+    [SerializeField] private MovementInput movement;
+    [SerializeField] private GameObject itemHandler;
 
+    private GameObject ball;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("player");
+        ball = GameObject.FindWithTag("magnet_ball");
+
+        loseAnimator.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -18,6 +32,11 @@ public class Timer : MonoBehaviour
         {
             Countdown();
         }
+        if( animLose.animationFinished)
+        {
+            GameObject.Find("LoseScreenManager").GetComponentInChildren<LosingSceneManager>().CheckIfLostGame();
+        }
+
     }
 
     private void Countdown()
@@ -41,7 +60,12 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            GameObject.Find("LoseScreenManager").GetComponentInChildren<LosingSceneManager>().CheckIfLostGame();
+            player.SetActive(false);
+            ball.SetActive(false);
+            itemHandler.SetActive(false);
+            movement.enabled = false;
+            loseAnimator.gameObject.SetActive(true);
+
         }
     }
 }
