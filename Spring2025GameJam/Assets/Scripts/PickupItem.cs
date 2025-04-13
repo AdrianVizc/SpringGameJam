@@ -14,12 +14,14 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private TMP_Text score;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     public float scaleIncrease;
+    [SerializeField] private List<AudioClip> collectSound;
     [HideInInspector] public int totalEnlarged;
     [HideInInspector] public float percentCollected; // DEV NOTE FOR NICK: this is the variable for total percent of objects collected
 
     private List<GameObject> pickupItems = new List<GameObject>();
     private List<GameObject> attachedItems = new List<GameObject>();
 
+    private AudioSource audioSource;
     private int minThreshold;
     private int currPickedUp;
     private int totalScore;
@@ -27,6 +29,7 @@ public class PickupItem : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         pickupItems.AddRange(GameObject.FindGameObjectsWithTag("pickupable")); // List of all gameobjects that could be picked up
         minThreshold = Mathf.FloorToInt(pickupItems.Count * (percentToIncrease / 100f));
         scaleIncrease = scaleIncrease / 10;
@@ -39,6 +42,10 @@ public class PickupItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("pickupable"))
         {
+            // SFX
+            audioSource.clip = collectSound[Random.Range(0, 3)];
+            audioSource.Play();
+
             // Add to total score based on item's value
             ++totalPickedUp;
             percentCollected = Mathf.Round(((float)totalPickedUp / (float)pickupItems.Count) * 100f);
